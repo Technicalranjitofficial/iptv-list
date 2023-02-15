@@ -21,6 +21,22 @@ export default function Home() {
     setPlayUrl(url);
     setOpen(true);
   }
+  const handleOnSearch=(e)=>{
+
+    if(e.target.value!==''){
+      const filtereddata = data.filter((item)=>{
+       return Object.values(item).join('').toLowerCase().includes(e.target.value.toLowerCase());
+      });
+      setChannel(filtereddata);
+
+      console.log(filtereddata);
+    }else{
+      setChannel(data);
+    }
+
+
+    
+  }
   return (
     <>
    <div className=' bg-black/75 mx-auto   min-h-screen'>
@@ -34,7 +50,7 @@ export default function Home() {
       <Navbar/>
       <br />
       <br />
-
+      <input className='rounded-md pl-3 hover:outline-none outline-none bg-black/75 text-white' onChange={(e)=>handleOnSearch(e)}  type="text" placeholder='Search..' />
       <TableContent handleOnplay={handleOnplay} channel={channel}/>
     </div>
    </div>

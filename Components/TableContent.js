@@ -26,7 +26,7 @@ const TableContent = ({channel,handleOnplay}) => {
           <tbody>
            
             {channel.map((val,index)=>{
-                return  <tr class="border-b border-gray-600">
+                return  <tr key={index} class="border-b border-gray-600">
                 <td className="  py-4 whitespace-nowrap text-sm font-medium text-slate-300 ">
                 <p>{val.name}</p>
                     </td>
